@@ -1,33 +1,50 @@
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.ComponentModel;
 using System.Threading;
 using System.IO;
 
 class Loop {
+
+	static void printHelp(string additional = "") {
+		Console.WriteLine("{0}\nUSAGE: loop [seconds] cmd", additional);
+	}
 	static void Main(string[] args) {
+
+		// create List to work better with arguments
+		List<string> argsList = new List<string>(args);
+
 		int ms = 1000;
 		string cmd = "";
 
-		if(args.Length < 1) {
-			Console.WriteLine("USAGE: loop [seconds] cmd");
+		if(argsList.Count < 1) {
+			printHelp();
 			return;
 		}
 
 		double n = 0;
 		// check if first arg is the time
-		if(double.TryParse(args[0], out n)) {
+		if(double.TryParse(argsList[0], out n)) {
 
 			if (n <= 0) {
 				Console.WriteLine("Seconds should ne under 0");
 				return;
 			}
 			// remove time from array
-			args[0] = null;
+			argsList.RemoveAt(0);
 			ms = Convert.ToInt32(n * 1000);
 		}
-		for(int i = 0; i < args.Length; i++) {
-			cmd = String.Join(" ", args);
+
+		// join arguments
+		for(int i = 0; i < argsList.Count; i++) {
+			cmd = String.Join(" ", argsList);
+		}
+
+		// check if command is empty
+		if(String.IsNullOrEmpty(cmd)) {
+			printHelp("No Command");
+			return;
 		}
 
 		try {
