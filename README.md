@@ -10,8 +10,8 @@ csc.exe loop.cs
 
 ## Usage
 ```cmd
-loop [seconds] "cmd"
-loop 2 "echo hello world..."
+loop [seconds] cmd
+loop 2 echo hello world...
 ```
 
 ### Output

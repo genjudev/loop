@@ -9,22 +9,25 @@ class Loop {
 		int ms = 1000;
 		string cmd = "";
 
-		if(args.Length > 2 || args.Length == 0) {
-			Console.WriteLine("USAGE: loop [seconds] \"cmd\"");
+		if(args.Length < 1) {
+			Console.WriteLine("USAGE: loop [seconds] cmd");
 			return;
 		}
 
 		double n = 0;
-		for(int i = 0; i < args.Length; i++) {
-			if(double.TryParse(args[i], out n)) {
-				if(n <= 0) {
-					Console.WriteLine("Seconds should ne over 0");
-					return;
-				}
-				ms = Convert.ToInt32(n*1000);
-			} else {
-				cmd = args[i];
+		// check if first arg is the time
+		if(double.TryParse(args[0], out n)) {
+
+			if (n <= 0) {
+				Console.WriteLine("Seconds should ne under 0");
+				return;
 			}
+			// remove time from array
+			args[0] = null;
+			ms = Convert.ToInt32(n * 1000);
+		}
+		for(int i = 0; i < args.Length; i++) {
+			cmd = String.Join(" ", args);
 		}
 
 		try {
