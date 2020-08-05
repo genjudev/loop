@@ -9,7 +9,6 @@
     <projectUrl>https://github.com/larsonnn/loop</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Easy to use looping commandline tool</description>
-    <copyright>2020</copyright>
   </metadata>
   <files>
     <file src="chocolateyinstall.ps1" target="tools" />

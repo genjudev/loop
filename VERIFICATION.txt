@@ -1,0 +1,7 @@
+VERIFICATION
+Verification is intended to assist the Chocolatey moderators and community
+in verifying that this package's contents are trustworthy.
+ 
+checksum loop.exe 
+sha1: b7411cc7176205372062481f424a80bbb1d3b624
+md5: 52365a10838411f5318048530b181a94
