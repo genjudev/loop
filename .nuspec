@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>loop</id>
+    <version>1.0.0</version>
+    <title>loop</title>
+    <authors>Lars Feldeisen</authors>
+    <owners>Lars Feldeisen</owners>
+    <projectUrl>https://github.com/larsonnn/loop</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Easy to use looping commandline tool</description>
+    <copyright>2020</copyright>
+  </metadata>
+  <files>
+    <file src="chocolateyinstall.ps1" target="tools" />
+    <file src="chocolateyuninstall.ps1" target="tools" />
+    <file src=".\bin\Release\netcoreapp3.1\**" target="tools" />
+  </files>
+</package>
