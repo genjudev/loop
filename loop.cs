@@ -77,7 +77,7 @@ class Loop
                         Console.WriteLine(error);
                         p.Close();
                         return;
-                    };
+                    }
 
                     p.WaitForExit();
                 }
